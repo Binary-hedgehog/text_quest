@@ -8,7 +8,7 @@ import game.player.Person
  * Инициализируется из JSON файлов
  */
 class Location() {
-  val events: List[Event] = List()
+  var events: List[Event] = List()
 
   def prepareEvents(person: Person): List[Event] = events.filter(_.requirements(person))
 
@@ -18,5 +18,10 @@ class Location() {
     var result = Random.shuffle(prepareEvents(person)).take(3)
     // TODO make always 3 choice
     result
+  }
+
+
+  def runEvent = {
+
   }
 }
