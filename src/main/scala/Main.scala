@@ -10,7 +10,7 @@ object Main {
     // init Person
     val locations = List()
     var currentLocation = new Location()
-    val person = new Person("John", "elf", "male")
+    val person = new Person("John", "elf", "male") // implicit val?
     val connector: Connector = null
 
 
