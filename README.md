@@ -39,7 +39,7 @@
                 "success": {
                     "reputation": 2
                 },
-                "unsuccess": {
+                "unsuccessful": {
                     "reputation": -1,
                     "gold": -10
                 }
@@ -55,7 +55,7 @@
                     "reputation": 2,
                     "gold": -10
                 },
-                "unsuccess": {}
+                "unsuccessful": {}
                 }
             },
         {
@@ -67,7 +67,7 @@
                 "success": {
                     "reputation": -1
                 },
-                "unsuccess": {
+                "unsuccessful": {
                     "reputation": -2,
                     "gold": -10,
                     "hp": -2

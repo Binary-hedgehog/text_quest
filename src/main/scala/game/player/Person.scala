@@ -7,11 +7,11 @@ class Person(val name: String, val race: String, val sex: String) {
   val stats = new Stats()
   val bag = new Bag()
   var gold: Int = defaultStartGold
-
+  var reputation = 0
+  var className: String = null // ?
+  var titles: List[String] = null
   def newLevel() = "" //?
 
-  def reputation = null
-  var className = null // ?
   var religion = null // or int as Map key?
   def damage: Int = stats.strength + bag.items.values.filter(_.equipped).map(_.damage).sum//+ bag.items.sum(_.damage) + bafs.filter - debafs.filter
 
