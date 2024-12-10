@@ -1,15 +1,13 @@
 package game.player
 
-import game.Constants.defaultStartGold
-
-
 class Person(val name: String, val race: String, val sex: String) {
   val stats = new Stats()
   val bag = new Bag()
-  var gold: Int = defaultStartGold
   var reputation = 0
   var className: String = null // ?
   var titles: List[String] = null
+  //var effects: List[Effect] = List ()
+  //case class Effect(name: String, effectType: String, value: Int, var duration)
   def newLevel() = "" //?
 
   var religion = null // or int as Map key?
@@ -25,3 +23,4 @@ class Person(val name: String, val race: String, val sex: String) {
 object Person {
 
 }
+

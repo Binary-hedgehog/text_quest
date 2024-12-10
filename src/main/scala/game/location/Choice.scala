@@ -1,8 +1,10 @@
 package game.location
 
+import game.Constants.statsList
+import game.location.Location.changeLocation
 import game.player.Person
 
-case class Choice(name: String, requirements: List[Requirement], exam: Map[String, Int], result: Map[String, Map[String, Any]]) {
+case class Choice(name: String, requirements: List[Requirement], exam: Map[String, Int], result: Map[String, Map[String, String]]) {
   def examination(person: Person): Boolean = person.checkSuccess(exam.keys.head, exam.values.head)
 
   def isAvailable(person: Person): Boolean = false
@@ -14,17 +16,21 @@ case class Choice(name: String, requirements: List[Requirement], exam: Map[Strin
       applyResult(result("unsuccessful"), person)
 
 
+  def applyResult(res: Map[String, String], person: Person): Unit = {
+    res.foreach {
+      case (k, v) => k match {
+        case "reputation" => person.reputation += v.toInt
+        case "gold" => person.bag.gold += v.toInt
+        case "class" => person.className = v
+        case "title_add" => person.titles ++ List(v)
+        //      case "title_drop" => person.titles +=
+        //      case "reputation" => person.reputation += v.toInt
+        //case "location" => changeLocation(v, ) // change main location
+        case k if statsList.contains(k) => person.stats.appendStatByString(k, v.toInt)
+        //       case k if statsList.contains(k)  => person.stats.appendStatByString(k, v.toInt)
 
-
-  def applyResult(res: Map[String, Any], person: Person): Unit = {
-    res.keys.foreach {
-      case key@"reputation" => person.reputation += res(key).toString.toInt
-      case key@"gold"       => person.gold += res(key).toString.toInt
-      case key@"class"      => person.className = res(key).toString
-      case key@"title_add"  => person.titles ++ List(res(key).toString)
-//      case key@"title_drop" => person.titles +=
-//      case key@"reputation" => person.reputation += res(key).toString.toInt
-      case key@_            => person.stats.appendStatByString(key, res(key).toString.toInt)
+      }
     }
   }
+
 }

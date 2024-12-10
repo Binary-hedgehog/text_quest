@@ -1,9 +1,10 @@
 package game.player
 
-import game.Constants.defaultBagSize
+import game.Constants._
 
 case class Bag(var size: Int = defaultBagSize, var items: Map[Int, Item] = Map()) {
   private var curNum = 0 // hidden param, append it while adding new item
+  var gold: Int = defaultStartGold
 
   def addItem(item: Item): Boolean = {
     if (items.size < size) {

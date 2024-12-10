@@ -1,6 +1,8 @@
 package game
 
 object Constants {
-  var defaultBagSize: Int = 20
-  var defaultStartGold: Int = 20
+  val StartLocationName: String = "town"
+  val defaultBagSize: Int = 20
+  val defaultStartGold: Int = 20
+  val statsList: List[String] = List("strength", "dexterity", "intelligence", "charisma", "lucky")
 }

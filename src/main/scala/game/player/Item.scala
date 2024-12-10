@@ -8,5 +8,5 @@ package game.player
  * @param defence защита
  * @param equipped экипирован ли предмет
  */
-case class Item(name: String, itemType: String, damage: Int, defence: Int, var equipped: Boolean = false)
+case class Item(name: String, itemType: String, price: Int, damage: Int, defence: Int, var equipped: Boolean = false)
 // подумать о том, чтобы итемы добавляли уклонение, попадание и прочее дерьмо....пока без этого
