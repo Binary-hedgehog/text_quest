@@ -7,8 +7,8 @@ import game.player.Person
  * Каждое действие вызывает несколько возможных событий
  * Инициализируется из JSON файлов
  */
-class Location(var name: String) {
-  var events: List[Event] = List()
+class Location(val name: String, events: List[String] = List()) {
+
 
   def prepareEvents(person: Person): List[Event] = events.filter(_.requirements(person))
 

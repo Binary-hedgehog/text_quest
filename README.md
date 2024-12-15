@@ -4,9 +4,7 @@
     "locations": [
     { 
         "name": "town",
-        "events": [
-            {}
-        ]
+        "events": ["first", "sceond"]
     }  
     ]
 }
