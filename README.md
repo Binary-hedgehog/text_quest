@@ -10,7 +10,7 @@
 }
 ```
 ``` json
-//event
+//event  тут на самом деле еще "events": {[ ... ]}
 {
     "name": "Обвинение в воровстве",
     "description": "Бла-бла вас обвинили в воровстве",
@@ -32,44 +32,39 @@
             },
             "exam": {
                 "charisma": 5
+            },         
+            "success": {
+                "reputation": 2
             },
-            "result": {
-                "success": {
-                    "reputation": 2
-                },
-                "unsuccessful": {
-                    "reputation": -1,
-                    "gold": -10
-                }
+            "failure": {
+                "reputation": -1,
+                "gold": -10
             }
+
         },
         {
             "name": "Заплатить",
             "requirement": {
                 "gold": 10
             },
-            "result": {
-                "success": {
-                    "reputation": 2,
-                    "gold": -10
-                },
-                "unsuccessful": {}
-                }
+            "success": {
+                "reputation": 2,
+                "gold": -10
             },
+            "failure": {}
+        },       
         {
             "name": "Убежать",
             "exam": {
                 "dexterity": 3
             },
-            "result": {
-                "success": {
-                    "reputation": -1
-                },
-                "unsuccessful": {
-                    "reputation": -2,
-                    "gold": -10,
-                    "hp": -2
-                }
+            "success": {
+                "reputation": -1
+            },
+            "failure": {
+                "reputation": -2,
+                "gold": -10,
+                "hp": -2
             }
         }
     ]

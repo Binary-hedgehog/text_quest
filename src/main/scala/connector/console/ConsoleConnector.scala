@@ -1,7 +1,7 @@
 package connector.console
 
 import connector.Connector
-import game.location.Event
+import game.environment.Event
 
 class ConsoleConnector extends Connector {
   override def chooseEvent(events: List[Event]): Event = ???

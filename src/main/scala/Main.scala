@@ -1,6 +1,6 @@
 import connector.Connector
-import game.location.{Event, Location}
-import game.location.init.Initialisation.{initEvents, initLocations}
+import game.environment.{Event, Location}
+import game.environment.init.Initialisation.{initEvents, initLocations}
 import game.player.Person
 import helper.JsonHelper.getJsonValue
 
@@ -16,8 +16,8 @@ object Main {
 //
 //    val eventName = scala.io.StdIn.readLine()
 //    println(eventName)
-    val a = getJsonValue("""D:\Profects\scala\text_quest\src\main\scala\helper\test.json""")
-    println(a("locations").arr)
+    val a = List(true, false, true).forall(_ == true)
+    println(a)
 
 
   }

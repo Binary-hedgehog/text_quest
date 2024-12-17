@@ -1,6 +1,6 @@
-package game.location.init
+package game.environment.init
 
-import game.location.{Choice, Event, Location, Requirement}
+import game.environment._
 import helper.InitHelper._
 import helper.JsonHelper._
 

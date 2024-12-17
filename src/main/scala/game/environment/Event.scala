@@ -1,4 +1,4 @@
-package game.location
+package game.environment
 
 import game.player.Person
 
@@ -8,7 +8,7 @@ import game.player.Person
  * Содержит описание событий, требования к наступлению события и выборы, которые можно совершить
  * @param name имя события
  */
-class Event(name: String, description: String, requirements: List[Requirement], choices: List[Choice]) {
+class Event(name: String, description: String, requirements: Requirement, choices: List[Choice]) {
   def makeChoice(person: Person): Unit = {
     // push to connector to make a choice from choises
     // run exam

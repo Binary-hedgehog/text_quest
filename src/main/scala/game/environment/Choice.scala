@@ -1,23 +1,24 @@
-package game.location
+package game.environment
 
 import game.Constants.statsList
 import game.player.Person
 
-case class Choice(name: String, requirements: List[Requirement] = List(), exam: Map[String, Int] = Map(),
-                  result: Map[String, Map[String, String]]) {
+case class Choice(name: String, requirements: Requirement, exam: Map[String, Int],
+                  success: Map[String, String], failure: Map[String, String]) {
   def examination(person: Person): Boolean =
     if (exam.nonEmpty)
       person.checkSuccess(exam.keys.head, exam.values.head)
     else
       true
 
-  def isAvailable(person: Person): Boolean = false
+  def isAvailable(person: Person): Boolean = requirements.isAvailable(person)
+
 
   def getResult(person: Person): Unit =
     if (examination(person))
-      applyResult(result("success"), person)
+      applyResult(success, person)
     else
-      applyResult(result("unsuccessful"), person)
+      applyResult(failure, person)
 
 
   def applyResult(res: Map[String, String], person: Person): Unit = {

@@ -1,16 +1,12 @@
 package helper
 
-import game.location.{Choice, Requirement}
+import game.environment.{Choice, Requirement}
 import helper.JsonHelper.getStringValue
 import ujson.Value.Value
 
 object InitHelper {
 
-  def getRequirements(value: Value): List[Requirement] =
-    value
-      .arr
-      .map(x => new Requirement(getAnyMapValue(x)))
-      .toList
+  def getRequirements(value: Value): Requirement = new Requirement(getStringMapValue(value))
 
   def getChoices(value: Value): List[Choice] =
     value
@@ -19,20 +15,22 @@ object InitHelper {
         name = getStringValue(x("name")),
         requirements = getRequirements(x("requirements")),
         exam = getIntMapValue(x("exam")),
-        result = ??? // TODO make two different result field
-      ))
+        success = getStringMapValue(x("success")),
+        failure = getStringMapValue(x("failure"))))
+      .toList
 
-
-  def getAnyMapValue(value: Value): Map[String, Any] =
-    getPrevMapValue(value).asInstanceOf[Map[String, Any]]
+  def getStringMapValue(value: Value): Map[String, String] =
+    getPrevMapValue(value).asInstanceOf[Map[String, String]]
 
   def getIntMapValue(value: Value): Map[String, Int] =
     getPrevMapValue(value).asInstanceOf[Map[String, Int]]
 
-  def getPrevMapValue(value: Value): Array[(Any, Any)] =
+  def getPrevMapValue(value: Value)=
     value
       .str
       .split(",")
       .map(_.split(":"))
       .map { case (k, v) => (k, v) }
+      .toMap // ???
+
 }

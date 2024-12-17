@@ -1,4 +1,4 @@
-package game.location
+package game.environment
 
 import game.player.Person
 
@@ -10,7 +10,7 @@ import game.player.Person
 class Location(val name: String, events: List[String] = List()) {
 
 
-  def prepareEvents(person: Person): List[Event] = events.filter(_.requirements(person))
+  def prepareEvents(person: Person): List[Event] = null//events.filter(_.requirements(person))
 
 
   def getEvents(person: Person): List[Event] = {

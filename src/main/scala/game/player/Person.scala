@@ -5,7 +5,7 @@ class Person(val name: String, val race: String, val sex: String) {
   val bag = new Bag()
   var reputation = 0
   var className: String = null // ?
-  var titles: List[Title] = null
+  var titles: List[String] = List()
   //var effects: List[Effect] = List ()
   //case class Effect(name: String, effectType: String, value: Int, var duration)
   def newLevel() = "" //?
@@ -23,6 +23,12 @@ class Person(val name: String, val race: String, val sex: String) {
 }
 
 object Person {
-
+  def checkReputation(person: Person, reqRep: String): Boolean = false
+//    val some: Map[String, String] = reqRep.split(",").map{x=>x.split(":").map(case(k,v) => (k,v))}.toMap
+//    if (some("comparison") == "less")
+//      person.reputation < some("value").toInt
+//    else
+//      person.reputation > some("value").toInt
+//
 }
 

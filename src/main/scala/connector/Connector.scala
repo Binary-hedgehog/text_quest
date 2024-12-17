@@ -1,6 +1,6 @@
 package connector
 
-import game.location.Event
+import game.environment.Event
 
 abstract class Connector {
     def chooseEvent(events: List[Event]): Event
