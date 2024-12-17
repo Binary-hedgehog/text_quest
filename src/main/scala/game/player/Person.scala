@@ -1,5 +1,7 @@
 package game.player
 
+import helper.JsonHelper.stringToMap
+
 class Person(val name: String, val race: String, val sex: String) {
   val stats = new Stats()
   val bag = new Bag()
@@ -20,15 +22,18 @@ class Person(val name: String, val race: String, val sex: String) {
     // TODO потестить в будущем момент диапазон и что он нам дает
     Random.between(0, 10) + stats.getStatByString(statName) > threshold
   }
+
+  def checkReputation(reqRep: String): Boolean = {
+    val some: Map[String, String] = stringToMap(reqRep)
+    if (some("comparison") == "less")
+      this.reputation < some("value").toInt
+    else
+      this.reputation > some("value").toInt
+  }
 }
 
 object Person {
-  def checkReputation(person: Person, reqRep: String): Boolean = false
-//    val some: Map[String, String] = reqRep.split(",").map{x=>x.split(":").map(case(k,v) => (k,v))}.toMap
-//    if (some("comparison") == "less")
-//      person.reputation < some("value").toInt
-//    else
-//      person.reputation > some("value").toInt
-//
+
+
 }
 

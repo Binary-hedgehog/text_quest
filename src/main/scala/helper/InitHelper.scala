@@ -1,7 +1,7 @@
 package helper
 
 import game.environment.{Choice, Requirement}
-import helper.JsonHelper.getStringValue
+import helper.JsonHelper.{getIntMapValue, getStringMapValue, getStringValue}
 import ujson.Value.Value
 
 object InitHelper {
@@ -18,16 +18,5 @@ object InitHelper {
         success = getStringMapValue(x("success")),
         failure = getStringMapValue(x("failure"))))
       .toList
-
-  def getIntMapValue(value: Value): Map[String, Int] =
-    getStringMapValue(value).asInstanceOf[Map[String, Int]]
-
-  def getStringMapValue(value: Value): Map[String, String]=
-    value
-      .str
-      .split(",")
-      .map(_.split(":"))
-      .map { case Array(k, v) => (k, v) }
-      .toMap
 
 }
