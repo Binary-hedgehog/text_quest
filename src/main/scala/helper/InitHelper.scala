@@ -19,18 +19,15 @@ object InitHelper {
         failure = getStringMapValue(x("failure"))))
       .toList
 
-  def getStringMapValue(value: Value): Map[String, String] =
-    getPrevMapValue(value).asInstanceOf[Map[String, String]]
-
   def getIntMapValue(value: Value): Map[String, Int] =
-    getPrevMapValue(value).asInstanceOf[Map[String, Int]]
+    getStringMapValue(value).asInstanceOf[Map[String, Int]]
 
-  def getPrevMapValue(value: Value)=
+  def getStringMapValue(value: Value): Map[String, String]=
     value
       .str
       .split(",")
       .map(_.split(":"))
-      .map { case (k, v) => (k, v) }
-      .toMap // ???
+      .map { case Array(k, v) => (k, v) }
+      .toMap
 
 }
