@@ -11,9 +11,6 @@ case class Choice(name: String, requirements: Requirement, exam: Map[String, Int
     else
       true
 
-  def isAvailable(person: Person): Boolean = requirements.isAvailable(person)
-
-
   def getResult(person: Person): Unit =
     if (examination(person))
       applyResult(success, person)
@@ -29,10 +26,9 @@ case class Choice(name: String, requirements: Requirement, exam: Map[String, Int
         case "class" => person.className = v
         case "title_add" => null//person.addTitle // ++ List(v)
         case "title_drop" => null//person.titles +=
-        //      case "reputation" => person.reputation += v.toInt
+        case "reputation" => person.reputation += v.toInt
         //case "location" => changeLocation(v, ) // change main location
         case k if statsList.contains(k) => person.stats.appendStatByString(k, v.toInt)
-        //       case k if statsList.contains(k)  => person.stats.appendStatByString(k, v.toInt)
 
       }
     }

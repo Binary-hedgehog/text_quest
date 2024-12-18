@@ -16,8 +16,6 @@ class Event(name: String, description: String, requirements: Requirement, choice
     // return result to connector
 
   }        // Механика выбора
-  def requirements(person: Person): Boolean = false // требования к персонажу, для наступления события
-  // requirements
 
 
 }

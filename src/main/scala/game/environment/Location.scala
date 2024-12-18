@@ -9,9 +9,8 @@ import game.player.Person
  */
 class Location(val name: String, events: List[String] = List()) {
 
-
-  def prepareEvents(person: Person): List[Event] = null//events.filter(_.requirements(person))
-
+  // TODO здесь надо добавить глобальное поле событий и обращаться к нему по имени
+  def prepareEvents(person: Person): List[Event] = null//events.filter(_.requirements.isAvailable(person))
 
   def getEvents(person: Person): List[Event] = {
     import scala.util.Random
